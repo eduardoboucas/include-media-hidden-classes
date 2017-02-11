@@ -1,0 +1,36 @@
+$im-num-breakpoints: length($breakpoints);
+$im-hidden-class: "hidden" !default;
+
+@mixin im-hidden($type, $breakpoint) {
+  .#{$im-hidden-class}--#{$type}-#{$breakpoint} {
+    display: none;
+  }
+}
+
+@for $i from 1 through $im-num-breakpoints {
+  $breakpoint: nth($breakpoints, $i);
+  $breakpoint-name: nth($breakpoint, 1);
+
+  @if $i == $im-num-breakpoints {
+    @include media('>=#{$breakpoint-name}') {
+      @include im-hidden('for', $breakpoint-name);
+    }
+  } @else {
+    $next-breakpoint: nth($breakpoints, $i + 1);
+    $next-breakpoint-name: nth($next-breakpoint, 1);
+
+    @include media('>=#{$breakpoint-name}', '<#{$next-breakpoint-name}') {
+      @include im-hidden('for', $breakpoint-name);
+    }
+  }
+
+  @if $i != $im-num-breakpoints {
+    @include media('>=#{$breakpoint-name}') {
+      @include im-hidden('from', $breakpoint-name);
+    }    
+  }
+
+  @include media('<#{$breakpoint-name}') {
+    @include im-hidden('to', $breakpoint-name);
+  }
+}
