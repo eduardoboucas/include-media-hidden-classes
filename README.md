@@ -11,13 +11,13 @@ This plugin generates a set of classes that allow elements to be hidden for spec
 *Example:*
 
 ```scss
-/* Hidden for viewports on the "phone" breakpoint
+/* Hidden for viewports on the "phone" breakpoint */
 .hidden--for-phone
 
-/* Hidden for viewports larger than the "phone" breakpoint (inclusive)
+/* Hidden for viewports larger than the "phone" breakpoint (inclusive) */
 .hidden--from-phone
 
-/* Hidden for viewports smaller than the "phone" breakpoint (inclusive)
+/* Hidden for viewports smaller than the "phone" breakpoint (inclusive) */
 .hidden--to-phone
 ```
 
