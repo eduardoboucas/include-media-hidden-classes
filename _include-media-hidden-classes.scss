@@ -1,9 +1,14 @@
 $im-num-breakpoints: length($breakpoints);
+$im-hidden-important: false !default;
 $im-hidden-class: "hidden" !default;
 
 @mixin im-hidden($type, $breakpoint) {
   .#{$im-hidden-class}--#{$type}-#{$breakpoint} {
-    display: none;
+    @if $im-hidden-important == false {
+      display: none;
+    } @else {
+      display: none!important;
+    }
   }
 }
 
@@ -27,7 +32,7 @@ $im-hidden-class: "hidden" !default;
   @if $i != $im-num-breakpoints {
     @include media('>=#{$breakpoint-name}') {
       @include im-hidden('from', $breakpoint-name);
-    }    
+    }
   }
 
   @include media('<#{$breakpoint-name}') {
