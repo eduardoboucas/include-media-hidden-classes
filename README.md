@@ -71,4 +71,5 @@ This plugin generates a set of classes that allow elements to be hidden for spec
 ### Configuration
 
 > `$im-hidden-class`: The name of the generated classes (default: `hidden`)
+
 > `$im-hidden-important`: Whether to use add !important to the display value (default: `false`)
